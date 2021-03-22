@@ -103,7 +103,11 @@ export default function Product({ product }) {
             <Typography variant="h5" color="primary" gutterBottom paragraph>
               {toCurrency(product.price)}
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              variant="body1"
+              style={{ wordWrap: 'break-word' }}
+              paragraph
+            >
               {product.description}
             </Typography>
             <div className={classes.buttonWrapper}>

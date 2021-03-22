@@ -31,20 +31,25 @@ const defaultAddress = {
   email: '',
 };
 
+const scrollToTop = () => window.scrollTo(0, 0);
+
 export default function Checkout() {
   const theme = useTheme();
   const isWideScreen = useMediaQuery(theme.breakpoints.up('sm'));
   const [activeStep, setActiveStep] = useState(0);
   const [address, setAddress] = useState(defaultAddress);
 
+
   const goToNextStep = () => {
     const nextStep = Math.min(activeStep + 1, steps.length - 1);
     setActiveStep(nextStep);
+    scrollToTop();
   };
 
   const goToPrevStep = () => {
     const prevStep = Math.max(activeStep - 1, 0);
     setActiveStep(prevStep);
+    scrollToTop();
   };
 
   const getStepContent = (step) => {

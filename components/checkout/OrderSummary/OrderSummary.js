@@ -24,8 +24,22 @@ const useStyles = makeStyles(theme => ({
     fontStyle: 'italic',
     textAlign: 'right',
     marginRight: '1ch',
-    [theme.breakpoints.up('sm')]: {
+  },
+  prevButton: {
+    order: 2,
+  },
+  nextButton: {
+    order: 1,
+  },
+  [theme.breakpoints.up('sm')]: {
+    smallPrint: {
       marginRight: 0,
+    },
+    prevButton: {
+      order: 1,
+    },
+    nextButton: {
+      order: 2,
     },
   },
 }));
@@ -102,7 +116,11 @@ export default function OrderSummary({ handleSubmit }) {
 
       <Box mt={4}>
         <Grid container justify="space-between" spacing={2}>
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12} sm={6}
+            className={classes.prevButton}
+          >
             <Link href="/" passHref>
               <Button
                 variant="outlined"
@@ -116,7 +134,12 @@ export default function OrderSummary({ handleSubmit }) {
             </Link>
           </Grid>
 
-          <Grid item xs={12} sm={6} align="right">
+          <Grid
+            item
+            xs={12} sm={6}
+            className={classes.nextButton}
+            align="right"
+          >
             <Button
               variant="outlined"
               color="secondary"

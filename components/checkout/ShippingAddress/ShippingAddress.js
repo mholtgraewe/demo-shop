@@ -1,4 +1,5 @@
 import {
+  makeStyles,
   useTheme,
   useMediaQuery,
   Box,
@@ -19,9 +20,30 @@ import {
 import { useState } from 'react';
 import countries from './countries';
 
+const useStyles = makeStyles(theme => ({
+  prevButton: {
+    order: 2,
+  },
+  nextButton: {
+    order: 1,
+  },
+  [theme.breakpoints.up('sm')]: {
+    smallPrint: {
+      marginRight: 0,
+    },
+    prevButton: {
+      order: 1,
+    },
+    nextButton: {
+      order: 2,
+    },
+  },
+}));
+
 export default function ShippingAddress({ address, handleSubmit, handleBack }) {
   const theme = useTheme();
   const isWideScreen = useMediaQuery(theme.breakpoints.up('sm'));
+  const classes = useStyles();
   const [country, setCountry] = useState(address.country);
   const methods = useForm();
 
@@ -109,7 +131,11 @@ export default function ShippingAddress({ address, handleSubmit, handleBack }) {
 
           <Box mt={4}>
             <Grid container justify="space-between" spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                item
+                xs={12} sm={6}
+                className={classes.prevButton}
+              >
                 <Button
                   variant="outlined"
                   aria-label="Go back to order summary"
@@ -120,7 +146,12 @@ export default function ShippingAddress({ address, handleSubmit, handleBack }) {
                 </Button>
               </Grid>
 
-              <Grid item xs={12} sm={6} align="right">
+              <Grid
+                item
+                xs={12} sm={6}
+                align="right"
+                className={classes.nextButton}
+              >
                 <Button
                   variant="outlined"
                   color="secondary"

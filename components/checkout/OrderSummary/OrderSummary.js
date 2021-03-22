@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.fontSize * 0.8,
     fontStyle: 'italic',
     textAlign: 'right',
-    marginRight: '1ch',
   },
   prevButton: {
     order: 2,
@@ -32,9 +31,6 @@ const useStyles = makeStyles(theme => ({
     order: 1,
   },
   [theme.breakpoints.up('sm')]: {
-    smallPrint: {
-      marginRight: 0,
-    },
     prevButton: {
       order: 1,
     },

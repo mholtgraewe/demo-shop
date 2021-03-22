@@ -39,7 +39,6 @@ export default function Checkout() {
   const [activeStep, setActiveStep] = useState(0);
   const [address, setAddress] = useState(defaultAddress);
 
-
   const goToNextStep = () => {
     const nextStep = Math.min(activeStep + 1, steps.length - 1);
     setActiveStep(nextStep);

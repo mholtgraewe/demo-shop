@@ -16,7 +16,7 @@ import ShippingAddress from '../components/checkout/ShippingAddress';
 import PaymentDetails from '../components/checkout/PaymentDetails';
 import { NextSeo } from 'next-seo';
 
-const steps = ['Order Summary', 'Shipping Address', 'Payment Details' ];
+const steps = ['Order Summary', 'Shipping Address', 'Payment Details'];
 
 const defaultAddress = {
   firstName: '',
